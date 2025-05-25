@@ -1,0 +1,90 @@
+import { unique } from 'next/dist/build/utils'
+import { CollectionConfig } from 'payload'
+import { relationship } from 'payload/shared'
+
+export const Product: CollectionConfig = {
+  slug: 'products',
+  admin: {
+    useAsTitle: 'name',
+  },
+  fields: [
+    {
+      name: 'name',
+      type: 'text',
+      required: true,
+    },
+    {
+      name: 'slug',
+      type: 'text',
+      required: true,
+      unique: true,
+    },
+    {
+      name: 'description',
+      type: 'richText',
+    },
+    {
+      name: 'price',
+      type: 'number',
+      required: true,
+    },
+    {
+      name: 'stock',
+      label: 'Available Stock',
+      type: 'number',
+      required: true,
+      min: 0,
+      defaultValue: 0,
+      admin: {
+        description: 'Note: if value is less than 1 then inStock will be No',
+      },
+    },
+    {
+      name: 'sku',
+      label: 'SKU',
+      type: 'text',
+      unique: true,
+    },
+    {
+      name: 'featuredImage',
+      label: 'Featured Image',
+      type: 'upload',
+      relationTo: 'media',
+      required: true,
+    },
+    {
+      name: 'additionalImages',
+      label: 'Additional Images',
+      type: 'upload',
+      relationTo: 'media',
+      hasMany: true,
+    },
+    {
+      name: 'category',
+      type: 'relationship',
+      relationTo: 'categories',
+      hasMany: true,
+    },
+    {
+      name: 'featured',
+      type: 'checkbox',
+    },
+    {
+      name: 'inStock',
+      type: 'select',
+      options: ['Yes', 'No'],
+      label: 'In Stock?',
+      defaultValue: true,
+      admin: {
+        readOnly: true,
+      },
+      hooks: {
+        beforeChange: [
+          ({ data }) => {
+            return data?.stock > 0 ? 'Yes' : 'No'
+          },
+        ],
+      },
+    },
+  ],
+}
