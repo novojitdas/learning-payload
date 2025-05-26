@@ -29,6 +29,28 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    meta: {
+      description: 'This is a custom meta description',
+      icons: [
+        {
+          type: 'image/png',
+          rel: 'icon',
+          url: '/assets/favicon.svg',
+        },
+      ],
+      openGraph: {
+        title: 'This is a custom OG title',
+        description: 'This is a custom OG description',
+        images: [
+          {
+            url: '/assets/logo.svg',
+            width: 800,
+            height: 600,
+          },
+        ],
+      },
+      titleSuffix: '- QuilCraft',
+    },
     components: {
       graphics: {
         Logo: QuilLogo,
