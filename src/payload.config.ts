@@ -60,7 +60,7 @@ export default buildConfig({
   },
   upload: {
     limits: {
-      fileSize: 5 * 1024 * 1024, // 5MB in bytes
+      fileSize: 4000000, // 5MB in bytes
     },
   },
   collections: [Users, Media, Posts, Categories, Product, Reviews],

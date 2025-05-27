@@ -7,11 +7,17 @@ export const Reviews: CollectionConfig = {
     defaultColumns: ['user', 'product', 'rating', 'createdAt'],
   },
   fields: [
+    // {
+    //   name: 'user',
+    //   label: 'User',
+    //   type: 'relationship',
+    //   relationTo: 'users',
+    //   required: true,
+    // },
     {
-      name: 'user',
-      label: 'User',
-      type: 'relationship',
-      relationTo: 'users',
+      name: 'customer',
+      label: 'Customer Name',
+      type: 'text',
       required: true,
     },
     {

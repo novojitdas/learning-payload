@@ -1,6 +1,7 @@
 import { unique } from 'next/dist/build/utils'
 import { CollectionConfig } from 'payload'
 import { relationship } from 'payload/shared'
+import { FixedToolbarFeature, lexicalEditor } from '@payloadcms/richtext-lexical'
 
 export const Product: CollectionConfig = {
   slug: 'products',
@@ -22,6 +23,9 @@ export const Product: CollectionConfig = {
     {
       name: 'description',
       type: 'richText',
+      editor: lexicalEditor({
+        features: ({ defaultFeatures }) => [...defaultFeatures, FixedToolbarFeature()],
+      }),
     },
     {
       name: 'price',
