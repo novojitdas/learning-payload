@@ -1,10 +1,21 @@
 import { CollectionConfig } from 'payload'
+import { anyone } from './Users/access/anyone'
+import editor from './Users/access/editor'
+import { admin } from './Users/access/admin'
+import { hideForUsers } from './Users/access/hideForUsers'
 
 export const Reviews: CollectionConfig = {
   slug: 'reviews',
   admin: {
     useAsTitle: 'reviewText',
     defaultColumns: ['user', 'product', 'rating', 'createdAt'],
+    hidden: hideForUsers,
+  },
+  access: {
+    read: anyone,
+    create: editor,
+    update: editor,
+    delete: admin,
   },
   fields: [
     // {
