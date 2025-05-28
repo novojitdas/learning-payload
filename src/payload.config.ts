@@ -7,7 +7,7 @@ import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 
-import { Users } from './collections/Users'
+import { Users } from './collections/Users/config'
 import { Media } from './collections/Media'
 import { Posts } from './collections/Posts'
 import { Categories } from './collections/Categories'
@@ -57,6 +57,7 @@ export default buildConfig({
         Icon: QuilIcon,
       },
     },
+    dateFormat: 'd/MMM/yyyy',
   },
   upload: {
     limits: {
@@ -67,6 +68,7 @@ export default buildConfig({
   globals: [SocialLinks, RaffleWinner],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
+  serverURL: process.env.SERVER_URL || 'http://localhost:3000',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
