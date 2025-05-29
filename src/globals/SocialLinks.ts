@@ -1,10 +1,15 @@
 import { GlobalConfig } from 'payload'
+import { hideForUsersGlobal } from './access/hideForUsersGlobal'
+import { anyone } from '@/collections/Users/access/anyone'
+import editor from '@/collections/Users/access/editor'
 
 export const SocialLinks: GlobalConfig = {
   slug: 'social-links',
   label: 'Social Links',
+  admin: { hidden: hideForUsersGlobal },
   access: {
-    read: () => true,
+    read: anyone,
+    update: editor,
   },
   fields: [
     {
