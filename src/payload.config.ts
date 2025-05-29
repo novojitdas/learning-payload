@@ -13,6 +13,7 @@ import { Posts } from './collections/Posts'
 import { Categories } from './collections/Categories'
 import { Product } from './collections/Products'
 import { Reviews } from './collections/Reviews'
+import { Orders } from './collections/Orders'
 
 import { SocialLinks } from './globals/SocialLinks'
 import { RaffleWinner } from './globals/RaffleWinner'
@@ -64,7 +65,7 @@ export default buildConfig({
       fileSize: 4000000, // 5MB in bytes
     },
   },
-  collections: [Users, Media, Posts, Categories, Product, Reviews],
+  collections: [Users, Media, Posts, Categories, Product, Reviews, Orders],
   globals: [SocialLinks, RaffleWinner],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
