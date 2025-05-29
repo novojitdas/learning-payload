@@ -3,9 +3,9 @@ import { CollectionConfig } from 'payload'
 import { relationship } from 'payload/shared'
 import { FixedToolbarFeature, lexicalEditor } from '@payloadcms/richtext-lexical'
 import { anyone } from './Users/access/anyone'
-import editor from './Users/access/editor'
+import { editor } from './Users/access/editor'
 import { admin } from './Users/access/admin'
-import { userFieldAccess } from './Users/access/user'
+import { user, userFieldAccess } from './Users/access/user'
 import { hideForUsers } from './Users/access/hideForUsers'
 
 export const Product: CollectionConfig = {

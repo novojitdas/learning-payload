@@ -1,5 +1,7 @@
 import type { User } from 'payload'
+import { checkRole } from './checkRole'
 
 export function hideForUsers({ user }: { user?: User }) {
-  return !(user?.role === 'admin' || user?.role === 'editor')
+  const allowedRoles: User['roles'] = ['admin', 'editor']
+  return !checkRole(allowedRoles, user as any)
 }

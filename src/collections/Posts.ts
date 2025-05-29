@@ -1,7 +1,7 @@
 import { FixedToolbarFeature, lexicalEditor } from '@payloadcms/richtext-lexical'
 import type { CollectionConfig } from 'payload'
 import { anyone } from './Users/access/anyone'
-import editor from './Users/access/editor'
+import { editor } from './Users/access/editor'
 import { admin } from './Users/access/admin'
 import { hideForUsers } from './Users/access/hideForUsers'
 

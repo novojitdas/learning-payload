@@ -1,7 +1,7 @@
-import type { Access } from 'payload'
+import type { Access, FieldAccess } from 'payload'
 import { checkRole } from './checkRole'
 
-const editor: Access = ({ req: { user } }) => {
+export const editor: Access = ({ req: { user } }) => {
   if (user) {
     if (checkRole(['admin', 'editor'], user)) {
       return true
@@ -11,4 +11,6 @@ const editor: Access = ({ req: { user } }) => {
   return false
 }
 
-export default editor
+export const editorFieldAccess: FieldAccess = ({ req: { user } }) => {
+  return user ? checkRole(['admin', 'editor'], user) : false
+}

@@ -3,17 +3,24 @@ import CustomComponent from '@/components/CustomComponent'
 import { protectRoles } from './hooks/protectRoles'
 import { user } from './access/user'
 import { admin, adminFieldAccess } from './access/admin'
+import { userOrAdmin } from './access/userOrAdmin'
+import { hideForUsers } from './access/hideForUsers'
 
 export const Users: CollectionConfig = {
   slug: 'users',
+  labels: {
+    singular: 'Your Profile', // Label for a single item
+    plural: 'Accounts', // Label in the sidebar and list view
+  },
   admin: {
     useAsTitle: 'email',
+    hidden: hideForUsers,
   },
   auth: true,
   access: {
     read: user,
     create: admin,
-    update: user,
+    update: userOrAdmin,
     delete: admin,
   },
   fields: [
