@@ -5,6 +5,7 @@ import { user } from './access/user'
 import { admin, adminFieldAccess } from './access/admin'
 import { userOrAdmin } from './access/userOrAdmin'
 import { hideForUsers } from './access/hideForUsers'
+import { newUserWelcomeEmail } from './hooks/newUserWelcomeEmail'
 
 export const Users: CollectionConfig = {
   slug: 'users',
@@ -26,6 +27,11 @@ export const Users: CollectionConfig = {
   fields: [
     // Email added by default
     // Add more fields as needed
+    {
+      name: 'name',
+      type: 'text',
+      required: true,
+    },
     {
       name: 'roles',
       type: 'select',
@@ -53,4 +59,7 @@ export const Users: CollectionConfig = {
       },
     },
   ],
+  hooks: {
+    afterChange: [newUserWelcomeEmail],
+  },
 }

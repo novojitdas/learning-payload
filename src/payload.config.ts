@@ -1,4 +1,5 @@
 // storage-adapter-import-placeholder
+// Configs
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
@@ -6,7 +7,9 @@ import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
+import { emailAdapter } from './utils/mailerModule'
 
+// Collections
 import { Users } from './collections/Users/config'
 import { Media } from './collections/Media'
 import { Posts } from './collections/Posts'
@@ -15,12 +18,15 @@ import { Product } from './collections/Products'
 import { Reviews } from './collections/Reviews'
 import { Orders } from './collections/Orders'
 
+// Globals
 import { SocialLinks } from './globals/SocialLinks'
 import { RaffleWinner } from './globals/RaffleWinner'
 
+// Graphics
 import { QuilLogo } from './graphics/Logo'
 import { QuilIcon } from './graphics/Icon'
 
+// Paths
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -76,6 +82,7 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || '',
   }),
+  email: emailAdapter,
   sharp,
   plugins: [
     payloadCloudPlugin(),
