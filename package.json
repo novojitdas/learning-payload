@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@payloadcms/db-mongodb": "3.39.1",
+    "@payloadcms/email-nodemailer": "3.39.1",
     "@payloadcms/next": "3.39.1",
     "@payloadcms/payload-cloud": "3.39.1",
     "@payloadcms/richtext-lexical": "3.39.1",
@@ -24,6 +25,7 @@
     "cross-env": "^7.0.3",
     "graphql": "^16.8.1",
     "next": "15.3.0",
+    "nodemailer": "^7.0.3",
     "payload": "3.39.1",
     "react": "19.1.0",
     "react-dom": "19.1.0",
@@ -32,6 +34,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
     "@types/node": "^22.5.4",
+    "@types/nodemailer": "^6.4.17",
     "@types/react": "19.1.0",
     "@types/react-dom": "19.1.2",
     "autoprefixer": "^10.4.21",
