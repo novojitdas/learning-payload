@@ -45,6 +45,14 @@ export const Product: CollectionConfig = {
       required: true,
     },
     {
+      name: 'rating',
+      type: 'number',
+      required: true,
+      min: 1,
+      max: 5,
+      defaultValue: 5,
+    },
+    {
       name: 'stock',
       label: 'Available Stock',
       type: 'number',
