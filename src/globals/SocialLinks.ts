@@ -1,7 +1,7 @@
 import { GlobalConfig } from 'payload'
 import { hideForUsersGlobal } from './access/hideForUsersGlobal'
 import { anyone } from '@/collections/Users/access/anyone'
-import editor from '@/collections/Users/access/editor'
+import { editor } from '@/collections/Users/access/editor'
 
 export const SocialLinks: GlobalConfig = {
   slug: 'social-links',
@@ -25,6 +25,12 @@ export const SocialLinks: GlobalConfig = {
       required: false,
     },
     {
+      name: 'messenger',
+      label: 'messenger',
+      type: 'text',
+      required: false,
+    },
+    {
       name: 'instagram',
       label: 'Instagram',
       type: 'text',
@@ -33,6 +39,12 @@ export const SocialLinks: GlobalConfig = {
     {
       name: 'twitter',
       label: 'Twitter',
+      type: 'text',
+      required: false,
+    },
+    {
+      name: 'video',
+      label: 'Intro Video',
       type: 'text',
       required: false,
     },

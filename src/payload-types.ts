@@ -135,6 +135,7 @@ export interface UserAuthOperations {
  */
 export interface User {
   id: string;
+  name: string;
   roles?: ('admin' | 'editor' | 'user')[] | null;
   updatedAt: string;
   createdAt: string;
@@ -193,6 +194,7 @@ export interface Product {
     [k: string]: unknown;
   } | null;
   price: number;
+  rating: number;
   /**
    * Note: if value is less than 1 then inStock will be No
    */
@@ -365,6 +367,7 @@ export interface PayloadMigration {
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
+  name?: T;
   roles?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -427,6 +430,7 @@ export interface ProductsSelect<T extends boolean = true> {
   slug?: T;
   description?: T;
   price?: T;
+  rating?: T;
   stock?: T;
   sku?: T;
   featuredImage?: T;
@@ -517,8 +521,10 @@ export interface SocialLink {
   id: string;
   whatsapp?: string | null;
   facebook?: string | null;
+  messenger?: string | null;
   instagram?: string | null;
   twitter?: string | null;
+  video?: string | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -553,8 +559,10 @@ export interface RaffleWinner {
 export interface SocialLinksSelect<T extends boolean = true> {
   whatsapp?: T;
   facebook?: T;
+  messenger?: T;
   instagram?: T;
   twitter?: T;
+  video?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
