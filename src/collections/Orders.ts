@@ -23,7 +23,7 @@ const assignOrderNumber: CollectionBeforeChangeHook = async ({ data, req, operat
 // validate a phone number
 const validatePhone: Validate = (value) => {
   if (typeof value !== 'number') return 'Phone must be numbers'
-  if (!/^\d{11}$/.test(value)) {
+  if (!/^\d{11}$/.test(String(value))) {
     return 'Phone number must be exactly 11 digits and contain only numbers'
   }
   return true
